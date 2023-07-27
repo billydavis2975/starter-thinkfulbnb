@@ -31,7 +31,7 @@ section.alternate-background {
 }
 
 main img {
-  width: 100px;
+  width: 100%;
 }
 
 /* ---  Groups & Items --- */
@@ -41,6 +41,12 @@ main img {
   flex-direction: column;
 }
 
+.subgroup {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .item {
   flex: 1;
   margin: 10px;
@@ -48,6 +54,7 @@ main img {
 
 .item-double {
   flex: 2;
+  margin: 10px;
 }
 
 /* -------  Navigation ------- */
@@ -55,16 +62,27 @@ main img {
 header {
   background-color: #ff385c;
   padding: 20px 20px 0 20px;
-  text-align: center;
 }
 
 .logo {
   font-family: "Pangolin", cursive;
-  font-size: 72px;
+  font-size: 18vw;
   color: #fff;
+  text-align: center;
+}
+
+header nav {
+  display: flex;
+  justify-content: center;
+}
+
+header nav ul {
+  display: flex;
+  flex-direction: row;
 }
 
 header nav ul li {
+  flex: 1;
   list-style-type: none;
 }
 
@@ -74,39 +92,25 @@ header nav ul li a {
   padding: 0 20px 0 0;
 }
 
-ul {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
 header nav ul li a:hover {
   color: #bdbdbd;
   text-decoration: none;
 }
 
 /* -------  Search Form ------- */
-
 form {
   border: 2px solid #ff385c;
   padding: 10px;
-  display: flex;
-  flex-direction: column;
 }
 
 form label {
   font-weight: bold;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: -10px;
 }
 
-form input,
-form select {
-  width: 180px;
-  margin-left: auto;
-  display: flex;
-  justify-self: end;
+form select,
+form input {
+  margin-bottom: 20px;
+  width: 47vw;
 }
 
 form button {
@@ -116,19 +120,6 @@ form button {
   font-size: 24px;
   padding: 15px;
   width: 100%;
-  margin-top: 10px;
-}
-/*------- Host ---------*/
-section ul {
-  display: flex;
-  flex-direction: column;
-}
-img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 100%;
-  min-height: 100%;
 }
 
 /* -------  Footer ------- */
@@ -144,15 +135,57 @@ footer p {
 }
 
 /* -------  Media Query ------- */
-/* For screens wider than 768px */
-@media screen and (min-width: 768px) {
-  header {
-    display: flex;
-    justify-content: space-between;
-  }
-  ul {
+
+@media all and (min-width: 480px) {
+  .group {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  #formGroup {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  .subgroup {
+    display: flex;
+    flex-direction: column;
+  }
+
+  form select,
+  form input {
+    margin: 0px;
+  }
+
+  form button {
+    width: 150px;
+  }
+
+  header nav {
     justify-content: flex-end;
+  }
+
+  header {
+    background-color: #ff385c;
+
+    text-align: left;
+    padding: 0;
+  }
+
+  .logo {
+    font-size: 48px;
+    padding: 10px;
+  }
+
+  form select,
+  form input {
+    width: 180px;
+    margin-bottom: 20px;
+  }
+
+  header nav ul {
+    padding: 0;
   }
 }
